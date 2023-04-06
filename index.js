@@ -1,11 +1,15 @@
 const express = require('express');
 const multer = require('multer');
 const path = require('path');
+const ejs = require("ejs");
 
 const app = express();
 // const PORT = 8000;
 
+app.set('view engine', 'ejs');
 
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static("public"));
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
