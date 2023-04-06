@@ -3,7 +3,7 @@ const multer = require('multer');
 const path = require('path');
 
 const app = express();
-const PORT = 8000;
+// const PORT = 8000;
 
 
 
@@ -53,4 +53,4 @@ app.get('/download',(req,res)=>{
     res.download(file);
 });
 
-app.listen(PORT, () => console.log('Server startd at PORT:8000'));
+app.listen(process.env.PORT, () => console.log('Server startd at PORT:8000'));
