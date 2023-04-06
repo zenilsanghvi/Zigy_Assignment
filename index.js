@@ -4,11 +4,8 @@ const path = require('path');
 const ejs = require("ejs");
 
 const app = express();
-// const PORT = 8000;
 
 app.set('view engine', 'ejs');
-
-app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 const storage = multer.diskStorage({
@@ -16,22 +13,16 @@ const storage = multer.diskStorage({
         return cb(null, "./public/uploads");
     },
     filename: (req, file, cb) => {
-        // const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
         cb(null, file.fieldname + '-' + Date.now()+ '.mp4');
     },
 });
-// + '.mp4'
-// const upload = multer({ dest: "uploads/" });
 const upload = multer({
     storage:storage
   });
   
-
-app.set('view engine', 'ejs');
 app.set('views', path.resolve("./views"));
 
 app.use(express.json());
-app.use(express.static("public"));
 
 let uploadCheck=0;
 let fileName;
@@ -44,8 +35,6 @@ app.get("/", (req, res) => {
 })
 
 app.post("/upload", upload.single("profileImage"), (req, res) => {
-    // console.log(req.body);
-    // console.log(req.file);
     fileName = req.file.filename;
     uploadCheck=1;
     return res.redirect("/");
