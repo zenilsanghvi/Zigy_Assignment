@@ -5,11 +5,12 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <link rel="stylesheet" href="">
+  <title>Zigy_Assignment</title>
 </head>
 
 <body>
-  <h1>Upload your file here</h1>
+  <h1>Please Upload your File Here:</h1>
   <form action="/upload" method="POST" enctype="multipart/form-data">
     <input type="file" name="profileImage">
     <button type="submit">Upload</button>
@@ -18,7 +19,7 @@
   <video width="320" height="240" controls>
     <source src="/uploads/<%= video %>" type=video/mp4>
   </video>
-  <h1>Click download button to download video.</h1>
+  <h1>Click on download button to download video.</h1>
   <form action="/download">
     <button type="submit">Download</button>
   </form>

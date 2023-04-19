@@ -46,4 +46,7 @@ app.get('/download',(req,res)=>{
     res.download(file);
 });
 
-app.listen(process.env.PORT, () => console.log('Server startd at PORT:8000'));
+const port = 3000; // Port we will listen on
+
+// Function to listen on the port
+app.listen(port, () => console.log(`This app is listening on port ${port}`));
